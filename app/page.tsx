@@ -3,11 +3,10 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ConversationRecord } from '@/lib/db/types';
 import Link from 'next/link';
 
 /**
- * Interface for the conversation data displayed in cards
+ * Interface for the conversation card data
  */
 interface ConversationCardData {
   id: string;
@@ -19,71 +18,19 @@ interface ConversationCardData {
   related: number;
 }
 
-/**
- * Fetches conversations from the API
- *
- * @returns Promise<ConversationRecord[]> - Array of conversation records
- * @throws Error if the API request fails
- */
-async function fetchConversations(): Promise<ConversationRecord[]> {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/conversation?limit=50`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store', // Disable caching to get fresh data
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch conversations: ${response.status} ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    return data.conversations || [];
-  } catch (error) {
-    console.error('Error fetching conversations:', error);
-    return [];
-  }
-}
+// ====================
+// Dados estáticos de exemplo
+// ====================
+const conversations: ConversationCardData[] = [
+  { id: '1', avatar: 'C', username: 'Anonymous', platform: 'ChatGPT', views: 120, days: 16, related: 0 },
+  { id: '2', avatar: 'G', username: 'Anonymous', platform: 'Gemini', views: 45, days: 12, related: 0 },
+  { id: '3', avatar: 'L', username: 'Anonymous', platform: 'Claude', views: 78, days: 7, related: 0 },
+];
 
 /**
- * Transforms conversation records into card data format
- *
- * @param conversations - Array of conversation records from the database
- * @returns ConversationCardData[] - Array of formatted card data
+ * Home page component
  */
-function transformConversationsToCardData(conversations: ConversationRecord[]): ConversationCardData[] {
-  return conversations.map((conversation) => {
-    // Calculate days since creation
-    const createdAt = new Date(conversation.createdAt);
-    const now = new Date();
-    const daysDiff = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
-
-    // Generate avatar from model name
-    const avatar = conversation.model.charAt(0).toUpperCase();
-
-    return {
-      id: conversation.id,
-      avatar,
-      username: 'Anonymous',
-      platform: conversation.model,
-      views: conversation.views,
-      days: daysDiff,
-      related: 0,
-    };
-  });
-}
-
-/**
- * Home page component that displays a list of AI conversations
- */
-const Home = async () => {
-  // Fetch conversations from the API
-  const conversations = await fetchConversations();
-  const cardData = transformConversationsToCardData(conversations);
-
+const Home = () => {
   return (
     <div className='flex flex-col min-h-screen bg-gray-100'>
       <header className='bg-gray-200 p-4 flex justify-between items-center'>
@@ -116,7 +63,7 @@ const Home = async () => {
           </CardContent>
         </Card>
 
-        {cardData.length === 0 ? (
+        {conversations.length === 0 ? (
           <Card className='p-8 text-center'>
             <CardContent>
               <p className='text-gray-500 text-lg'>No conversations found. Be the first to share a conversation!</p>
@@ -124,7 +71,7 @@ const Home = async () => {
           </Card>
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {cardData.map((card) => (
+            {conversations.map((card) => (
               <Link key={card.id} href={`/conversation/${card.id}`}>
                 <Card className='overflow-hidden shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-200 cursor-pointer hover:border-gray-300'>
                   <CardContent className='pt-6 px-6'>
