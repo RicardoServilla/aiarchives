@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 Software Engineering Internship (TechX Labs, Inc.)
 
-## Getting Started
+📅 **Duration:** September 08, 2025 – November 07, 2025  
+🖥️ **Location:** Remote (Boston, MA)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📝 Internship Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Participated in the **Software Engineering Intern** program at TechX Labs, gaining hands-on experience with real-world projects focused on **large-scale web architecture and distributed systems**. Developed technical skills under the guidance of experienced engineers while contributing to enterprise-grade solutions.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Key Activities
 
-## Learn More
+🧪 Assisted in building and optimizing cloud-native infrastructure  
+🕵️‍♂️ Contributed to high-availability system design and performance improvements  
+🔍 Applied security best practices and worked with monitoring/logging systems  
+🧬 Collaborated with mentors and peers on real-world engineering projects  
+🛠️ Gained practical experience with technologies such as **VMSS, load balancers, and Redis caching**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 Skills Demonstrated
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🛡️ Cloud and Distributed Systems  
+🚨 Performance Optimization & High-Availability Design  
+📊 Enterprise-Grade Software Development  
+🌐 Security Best Practices Implementation  
+📁 Technical Documentation & Collaboration  
+🧠 Critical Thinking in Software Engineering
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏁 Conclusion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This internship provided me with valuable practical experience in software engineering, particularly in large-scale web architecture and distributed systems. It strengthened my technical and problem-solving skills while giving me confidence to contribute effectively to professional engineering teams. I look forward to applying these skills in future projects and advancing my knowledge in software development and cloud technologies.
